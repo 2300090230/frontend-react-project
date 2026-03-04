@@ -11,7 +11,7 @@ export default function ViewAllStudents()
    const fetchStudents = async () => {
        try
        {
-        const response = await axios.get("http://localhost:1235/adminapi/viewall")
+        const response = await axios.get("http://localhost:1235/adminapi/viewallstudents")
         setData(response.data)
        }
        catch(err)
