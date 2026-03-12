@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import './admin.css'
 
 export default function ViewAllFaculty() 
 {
@@ -33,12 +33,10 @@ export default function ViewAllFaculty()
        
 
   return (
-    <div>
-      <h3 style={{textAlign:"center"}}><u>View All Faculty </u></h3>
-      {
-        error && <p style={{textAlign:"center",color:"red"}}>{error}</p>
-      }
-      <table border={1}>
+    <div className="table-container">
+      <h3 className="table-title">View All Faculty</h3>
+      {error && <p className="error-message">{error}</p>}
+      <table className="data-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -53,18 +51,18 @@ export default function ViewAllFaculty()
         </thead>
         <tbody>
           {
-               data.map( (faculty,index) => (
-                   <tr key={index}>
-                    <td>{faculty.id}</td>
-                    <td>{faculty.name}</td>
-                    <td>{faculty.gender}</td>
-                    <td>{faculty.department}</td>
-                    <td>{faculty.designation}</td>
-                    <td>{faculty.salary}</td>
-                    <td>{faculty.email}</td>
-                    <td>{faculty.contact}</td>
-                   </tr>
-               ))
+            data.map((faculty, index) => (
+              <tr key={index}>
+                <td>{faculty.id}</td>
+                <td>{faculty.name}</td>
+                <td>{faculty.gender}</td>
+                <td>{faculty.department}</td>
+                <td>{faculty.designation}</td>
+                <td>{faculty.salary}</td>
+                <td>{faculty.email}</td>
+                <td>{faculty.contact}</td>
+              </tr>
+            ))
           }
         </tbody>
       </table>

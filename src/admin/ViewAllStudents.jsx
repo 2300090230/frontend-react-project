@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import './admin.css'
 
 export default function ViewAllStudents() 
 {
@@ -26,12 +26,10 @@ export default function ViewAllStudents()
        
 
   return (
-    <div>
-      <h3 style={{textAlign:"center"}}><u>View All Students</u></h3>
-      {
-        error && <p style={{textAlign:"center",color:"red"}}>{error}</p>
-      }
-      <table border={1}>
+    <div className="table-container">
+      <h3 className="table-title">View All Students</h3>
+      {error && <p className="error-message">{error}</p>}
+      <table className="data-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -44,16 +42,16 @@ export default function ViewAllStudents()
         </thead>
         <tbody>
           {
-               data.map( (student,index) => (
-                   <tr key={index}>
-                    <td>{student.id}</td>
-                    <td>{student.name}</td>
-                    <td>{student.gender}</td>
-                    <td>{student.department}</td>
-                    <td>{student.email}</td>
-                    <td>{student.contact}</td>
-                   </tr>
-               ))
+            data.map((student, index) => (
+              <tr key={index}>
+                <td>{student.id}</td>
+                <td>{student.name}</td>
+                <td>{student.gender}</td>
+                <td>{student.department}</td>
+                <td>{student.email}</td>
+                <td>{student.contact}</td>
+              </tr>
+            ))
           }
         </tbody>
       </table>
